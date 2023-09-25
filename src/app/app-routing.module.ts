@@ -5,21 +5,20 @@ import { GestionComponent } from './gestion/gestion.component';
 import { ListeFilmComponent } from './liste-film/liste-film.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 
-const routes: Routes = [{
-  path : "/Accueil", component : AppComponent 
+const routes: Routes = [ 
+  {
+  path : 'Gestion', component : GestionComponent 
 },
   {
-  path : "/Gestion", component : GestionComponent 
-},
-  {
-  path : "/Liste Film", component : ListeFilmComponent 
+  path : 'ListeFilm', component : ListeFilmComponent 
 },
 {
-  path : "/Contact", component : ContactFormComponent 
+  path : 'Contact', component : ContactFormComponent 
 },
 {
-  path :'**', component : AppComponent
+  path :'**', redirectTo: "", pathMatch: "full"
 },
+
 ];
 
 @NgModule({
