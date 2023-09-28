@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { ListeFilmComponent } from './liste-film/liste-film.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { AccueilComponent } from './accueil/accueil.component';
 
 const routes: Routes = [ 
   {
-  path : 'Gestion', component : GestionComponent 
+  path : 'gestion', component : GestionComponent 
 },
   {
-  path : 'ListeFilm', component : ListeFilmComponent 
+  path : 'listefilm', component : ListeFilmComponent 
 },
 {
-  path : 'Contact', component : ContactFormComponent 
+  path : 'contact', component : ContactFormComponent 
 },
+{path : 'accueil', component : AccueilComponent },
 {
-  path :'**', redirectTo: "", pathMatch: "full"
+  path :'**', redirectTo: 'accueil', pathMatch: 'full'
 },
 
 ];

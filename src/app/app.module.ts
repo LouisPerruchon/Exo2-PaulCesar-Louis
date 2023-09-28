@@ -9,7 +9,9 @@ import { ListeFilmComponent } from './liste-film/liste-film.component';
 import { FilmDetailComponent } from './liste-film/film-detail/film-detail.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { GestionComponent } from './gestion/gestion.component';
-
+import { MatMenuModule } from '@angular/material/menu';
+import { AccueilComponent } from './accueil/accueil.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +20,14 @@ import { GestionComponent } from './gestion/gestion.component';
     ListeFilmComponent,
     FilmDetailComponent,
     ContactFormComponent,
-    GestionComponent
+    GestionComponent,
+    AccueilComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

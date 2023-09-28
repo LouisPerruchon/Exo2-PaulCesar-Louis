@@ -1,1 +1,36 @@
-<p>contact-form works!</p>
+<div class="form-container">
+<form [formGroup]="formContact">
+    <div class="form-group">
+      <label for="Inputprenom1">Prénom</label>
+      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="nom">
+    </div>
+    <div class="form-group">
+      <label for="Inputnom1">Nom</label>
+      <input type="text" class="form-control" id="Inputnom1" placeholder="nom" formControlName="nom">
+    </div>
+    <div class="form-group">
+      <label for="Inputnom1">Age</label>
+      <input type="number" class="form-control" id="Inputage1" placeholder="21" formControlName="age">
+    </div>
+    <div class="form-check">
+      <div>
+        <label class="form-check-label" for="Check1">Hide email</label>
+            <!-- <div *ngIf="formContact.get('showEmail').value; else elseBlock"> -->
+        <input type="checkbox" class="form-check-input" id="Check1">
+        <ng-template #elseBlock>
+          <label class="form-check-label" for="Check1">Show email</label>
+        </ng-template>
+      </div>
+  </div> 
+  
+    <div class="form-group" >
+      <label for="InputEmail1">Email address</label>
+      <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+    </div>
+    <div class="form-group" >
+      <label for="InputTextCommentaire">Commentaire</label>
+      <input type="text" class="form-control" id="InputTextCommentaire" aria-describedby="emailHelp" placeholder="Enter email" formControlName="commentaire">
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
+  </form>
+</div>
