@@ -15,7 +15,9 @@ const routes: Routes = [
 {
   path : 'contact', component : ContactFormComponent 
 },
-{path : 'accueil', component : AccueilComponent },
+{
+  path : 'accueil', component : AccueilComponent 
+},
 {
   path :'**', redirectTo: 'accueil', pathMatch: 'full'
 },

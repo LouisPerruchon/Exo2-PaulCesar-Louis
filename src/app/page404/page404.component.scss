@@ -1,8 +1,11 @@
-.form-container{
+.meme-container{
     display:flex ;
     align-items: center;
     justify-content: center;
-    font-size: larger;
 }
 
+img{
+    height: 40vw;
+    display: flex;
+}
 

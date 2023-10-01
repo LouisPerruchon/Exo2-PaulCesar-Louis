@@ -1,36 +1,47 @@
 <div class="form-container">
 <form [formGroup]="formContact">
+<p class="h2"> Form Contact</p>
     <div class="form-group">
       <label for="Inputprenom1">Prénom</label>
-      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="nom">
+      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="prenom">
     </div>
     <div class="form-group">
       <label for="Inputnom1">Nom</label>
       <input type="text" class="form-control" id="Inputnom1" placeholder="nom" formControlName="nom">
     </div>
     <div class="form-group">
-      <label for="Inputnom1">Age</label>
-      <input type="number" class="form-control" id="Inputage1" placeholder="21" formControlName="age">
-    </div>
+      <label for="age">Age</label>
+      <input type="text" class="form-control" id="age" formControlName="age" (input)="validateField('age')">
+      <div *ngIf="formContact.get('age')?.hasError('required') && formContact?.get('age')?.touched" class="alert alert-danger">
+        L'âge est requis.
+      </div>
+      <div *ngIf="formContact.get('age')?.hasError('pattern') && formContact?.get('age')?.touched" class="alert alert-danger">
+        L'âge doit être un nombre.
+      </div>
+      <div *ngIf="formContact.get('age')?.hasError('min') && formContact?.get('age')?.touched" class="alert alert-danger">
+        L'âge doit être supérieur à 0.
+      </div>
+    </div>    
     <div class="form-check">
       <div>
-        <label class="form-check-label" for="Check1">Hide email</label>
-            <!-- <div *ngIf="formContact.get('showEmail').value; else elseBlock"> -->
-        <input type="checkbox" class="form-check-input" id="Check1">
+        <label class="form-check-label" for="Check1" *ngIf="!formContact.get('showEmail')?.value; else elseBlock">Hide email</label>
+        <input type="checkbox" class="form-check-input" id="Check1" formControlName="showEmail" (click)="emailValidatorCustom()">
         <ng-template #elseBlock>
-          <label class="form-check-label" for="Check1">Show email</label>
+          <label class="form-check-label" for="Check1">Email Hidden</label>
         </ng-template>
       </div>
   </div> 
   
-    <div class="form-group" >
+    <div class="form-group" *ngIf="!formContact.get('showEmail')?.value;">
       <label for="InputEmail1">Email address</label>
       <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
     </div>
     <div class="form-group" >
       <label for="InputTextCommentaire">Commentaire</label>
-      <input type="text" class="form-control" id="InputTextCommentaire" aria-describedby="emailHelp" placeholder="Enter email" formControlName="commentaire">
+      <input type="text" class="form-control" id="InputTextCommentaire" aria-describedby="emailHelp" placeholder="Enter commentary" formControlName="commentaire">
     </div>
-    <button type="submit" class="btn btn-primary" (click)="OnSubmit()">Submit</button>
-  </form>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!formContact.valid">Submit</button>
+    </div>
+    </form>
 </div>

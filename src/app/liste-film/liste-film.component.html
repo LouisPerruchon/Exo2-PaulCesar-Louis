@@ -1,0 +1,14 @@
+<div class='liste-container'>
+    <ul class="list-inline">
+        <li *ngFor="let film of listFilm" class="list-inline-item"> 
+            <a (click)="onSelection(film.idFilm)">
+            <p class="lead">{{film.nameFilm}}</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="detail-container" *ngIf="isFilmSelected">
+    <h4>{{filmSelected.nameFilm}}</h4>
+    <img src={{filmSelected.linkImageFilm}}>
+</div>

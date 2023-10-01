@@ -1,5 +1,5 @@
-export class FormContactData {
-    prenom!: string;
+export class FormContactData  {
+    prenom !: string;
     nom !:string;
     age !: number;
     email ?: string;
