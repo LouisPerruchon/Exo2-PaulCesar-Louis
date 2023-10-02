@@ -8,7 +8,7 @@ import { Observable, of, throwError } from 'rxjs';
 export class FilmService {
   
   desanchantée : Film = new Film(1, "Désenchantée", "assets/desenchantee.jpg");
-  shrek : Film = new Film(2, "Schrek", "assets/shrek.jpg");
+  shrek : Film = new Film(2, "Shrek", "assets/shrek.jpg");
   drive : Film = new Film(3, "Drive", "assets/drive.jpg");
   interstellar : Film = new Film(4, "Interstellar", "assets/interstellar.jpg");
   inception : Film = new Film(5, "Inception", "assets/inception.jpg");

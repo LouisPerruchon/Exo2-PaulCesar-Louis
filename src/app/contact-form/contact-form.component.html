@@ -3,15 +3,21 @@
 <p class="h2"> Form Contact</p>
     <div class="form-group">
       <label for="Inputprenom1">Prénom</label>
-      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="prenom">
+      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="prenom" >
+      <div *ngIf="formContact.get('nom')?.hasError('required') && formContact.get('nom')?.touched" class="alert alert-danger">
+        Le prénom est requis.
+      </div>
     </div>
     <div class="form-group">
       <label for="Inputnom1">Nom</label>
       <input type="text" class="form-control" id="Inputnom1" placeholder="nom" formControlName="nom">
+      <div *ngIf="formContact.get('nom')?.hasError('required') && formContact.get('nom')?.touched" class="alert alert-danger">
+        Le nom est requis.
+      </div>
     </div>
     <div class="form-group">
       <label for="age">Age</label>
-      <input type="text" class="form-control" id="age" formControlName="age" (input)="validateField('age')">
+      <input type="number" class="form-control" id="age" formControlName="age" (input)="validateField('age')" placeholder="21">
       <div *ngIf="formContact.get('age')?.hasError('required') && formContact?.get('age')?.touched" class="alert alert-danger">
         L'âge est requis.
       </div>
@@ -35,10 +41,19 @@
     <div class="form-group" *ngIf="!formContact.get('showEmail')?.value;">
       <label for="InputEmail1">Email address</label>
       <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+      <div *ngIf="formContact.get('email')?.hasError('required') && formContact.get('email')?.touched" class="alert alert-danger">
+        L'email est requis.
+      </div>
+      <div *ngIf="formContact.get('email')?.hasError('email') && formContact.get('email')?.touched" class="alert alert-danger">
+        L'email n'est pas valide.
+      </div>
     </div>
     <div class="form-group" >
       <label for="InputTextCommentaire">Commentaire</label>
-      <input type="text" class="form-control" id="InputTextCommentaire" aria-describedby="emailHelp" placeholder="Enter commentary" formControlName="commentaire">
+      <textarea class="form-control" id="commentaire" formControlName="commentaire" (input)="validateField('commentaire')"></textarea>
+      <div *ngIf="formContact.get('commentaire')?.hasError('required') && formContact.get('commentaire')?.touched" class="alert alert-danger">
+        Le commentaire est requis.
+      </div>
     </div>
     <div class="form-group">
       <button type="submit" class="btn btn-primary" (click)="onSubmit()" [disabled]="!formContact.valid">Submit</button>

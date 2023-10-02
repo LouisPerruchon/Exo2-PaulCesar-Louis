@@ -4,5 +4,26 @@
     justify-content: center;
     font-size: larger;
 }
+.error-tooltip {
+    position: relative;
+  }
+  
+  .error-tooltip .error-message {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ff0000;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  
+  .error-tooltip:hover .error-message {
+    display: block;
+  }
+  
+
 
 
