@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IFormContactData } from 'src/app/model/form-contact-data';
-import { FormContactService } from '../services/form-contact.service';
+import { FormContactService } from '../../services/form-contact.service';
 
 @Component({
   selector: 'app-contact-form',

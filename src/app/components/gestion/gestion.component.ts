@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormContactService } from '../services/form-contact.service';
-import { IFormContactData } from '../model/form-contact-data';
+import { FormContactService } from '../../services/form-contact.service';
+import { IFormContactData } from '../../model/form-contact-data';
 import { Observable } from 'rxjs';
 
 @Component({
