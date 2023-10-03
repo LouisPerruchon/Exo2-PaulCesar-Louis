@@ -1,9 +1,9 @@
 <ul class="list-group" *ngIf="!isFormEmpty ; else elseBlock">
-    <li class="list-group-item">{{formHistorical.prenom}}</li>
-    <li class="list-group-item">{{formHistorical.nom}}</li>
-    <li class="list-group-item">{{formHistorical.age}}</li>
-    <li *ngIf="formHistorical.email" class="list-group-item">{{formHistorical.email}}</li>
-    <li class="list-group-item">{{formHistorical.commentaire}}</li>
+    <li class="list-group-item">Prénom : {{formHistorical.prenom}}</li>
+    <li class="list-group-item">Nom : {{formHistorical.nom}}</li>
+    <li class="list-group-item">Age : {{formHistorical.age}}</li>
+    <li *ngIf="formHistorical.email" class="list-group-item">Email : {{formHistorical.email}}</li>
+    <li class="list-group-item">Commentaire : {{formHistorical.commentaire}}</li>
 </ul>
 <ng-template #elseBlock>
 <app-page404>

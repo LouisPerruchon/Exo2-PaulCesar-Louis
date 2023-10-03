@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormContactData } from 'src/app/model/form-contact-data';
+import { IFormContactData } from 'src/app/model/form-contact-data';
 import { FormContactService } from '../services/form-contact.service';
 
 @Component({
@@ -45,12 +45,10 @@ export class ContactFormComponent {
 
 
   public onSubmit(){
-    const formDataObject: FormContactData = this.formContact.value;
-    this.formService.setForm(formDataObject);
+    this.formService.setForm(this.formContact.value);
     alert('Formulaire valide ! Redirection vers la page d\'accueil.');
     this.router.navigate(['/accueil']);
-    return formDataObject
-}  
+    }
 
 validateField(fieldName: string) {
   const control = this.formContact.get(fieldName);

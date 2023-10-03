@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormContactService } from '../services/form-contact.service';
-import { FormContactData } from '../model/form-contact-data';
-import { Observable, isEmpty } from 'rxjs';
+import { IFormContactData } from '../model/form-contact-data';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gestion',
@@ -11,9 +11,15 @@ import { Observable, isEmpty } from 'rxjs';
 
 export class GestionComponent implements OnInit {
 
-  formHistorical: FormContactData = new FormContactData;
+  formHistorical: IFormContactData =   { 
+  prenom : "", 
+  nom :"",
+  age : 0,
+  email : "",
+  commentaire :""
+};
 
-  formFromService : Observable<FormContactData> = this.formService.getForm();
+  formFromService : Observable<IFormContactData | null> = this.formService.getForm();
 
   isFormEmpty : boolean = true;
 
@@ -21,12 +27,15 @@ export class GestionComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
-    this.formFromService.subscribe( 
-      x => this.formHistorical = x
-      ).unsubscribe() 
-    if(!(Object.keys(this.formHistorical).length === 0)){
+ngOnInit(): void {
+    this.formFromService.subscribe(x => {
+      if (x==null){
+        
+      }
+      else{
       this.isFormEmpty = false;
-    }
+      this.formHistorical = x;
+      }
+    });
   }
 }
