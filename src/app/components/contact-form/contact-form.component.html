@@ -2,14 +2,14 @@
 <form [formGroup]="formContact">
 <p class="h2"> Form Contact</p>
     <div class="form-group">
-      <label for="Inputprenom1">Prénom</label>
+      <label for="Inputprenom1">Prénom*</label>
       <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="prenom" (input)="validateField('prenom')">
       <div *ngIf="formContact.get('prenom')?.hasError('required') && formContact.get('prenom')?.touched" class="alert alert-danger">
         Le prénom est requis.
       </div>
     </div>
     <div class="form-group">
-      <label for="Inputnom1">Nom</label>
+      <label for="Inputnom1">Nom*</label>
       <input type="text" class="form-control" id="Inputnom1" placeholder="nom" formControlName="nom" (input)="validateField('nom')">
       <div *ngIf="formContact.get('nom')?.hasError('required') && formContact.get('nom')?.touched" class="alert alert-danger">
         Le nom est requis.
@@ -18,9 +18,6 @@
     <div class="form-group">
       <label for="age">Age</label>
       <input type="text" class="form-control" id="age" formControlName="age" (input)="validateField('age')" placeholder="21">
-      <div *ngIf="formContact.get('age')?.hasError('required') && formContact?.get('age')?.touched" class="alert alert-danger">
-        L'âge est requis.
-      </div>
       <div *ngIf="formContact.get('age')?.hasError('pattern') && formContact?.get('age')?.touched" class="alert alert-danger">
         L'âge doit être un nombre supérieur à 0.
       </div>
@@ -46,7 +43,7 @@
       </div>
     </div>
     <div class="form-group" >
-      <label for="InputTextCommentaire">Commentaire</label>
+      <label for="InputTextCommentaire">Commentaire*</label>
       <textarea class="form-control" id="commentaire" formControlName="commentaire" (input)="validateField('commentaire')"></textarea>
       <div *ngIf="formContact.get('commentaire')?.hasError('required') && formContact.get('commentaire')?.touched" class="alert alert-danger">
         Le commentaire est requis.
