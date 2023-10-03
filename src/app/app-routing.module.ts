@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GestionComponent } from './gestion/gestion.component';
-import { ListeFilmComponent } from './liste-film/liste-film.component';
-import { ContactFormComponent } from './contact-form/contact-form.component';
+import { GestionComponent } from './components/gestion/gestion.component';
+import { ListeFilmComponent } from './components/liste-film/liste-film.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
 
 const routes: Routes = [ 
