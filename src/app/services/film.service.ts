@@ -15,7 +15,6 @@ export class FilmService {
   listeFilm : Film[] = [this.desanchantée, this.shrek, this.drive, this.interstellar, this.inception];
   constructor() { 
 
-    
   }
 
   setListFilm(data : Film[]) : void {
