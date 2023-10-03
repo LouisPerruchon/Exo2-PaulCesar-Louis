@@ -3,29 +3,26 @@
 <p class="h2"> Form Contact</p>
     <div class="form-group">
       <label for="Inputprenom1">Prénom</label>
-      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="prenom" >
-      <div *ngIf="formContact.get('nom')?.hasError('required') && formContact.get('nom')?.touched" class="alert alert-danger">
+      <input type="text" class="form-control" id="Inputprenom1" placeholder="prenom" formControlName="prenom" (input)="validateField('prenom')">
+      <div *ngIf="formContact.get('prenom')?.hasError('required') && formContact.get('prenom')?.touched" class="alert alert-danger">
         Le prénom est requis.
       </div>
     </div>
     <div class="form-group">
       <label for="Inputnom1">Nom</label>
-      <input type="text" class="form-control" id="Inputnom1" placeholder="nom" formControlName="nom">
+      <input type="text" class="form-control" id="Inputnom1" placeholder="nom" formControlName="nom" (input)="validateField('nom')">
       <div *ngIf="formContact.get('nom')?.hasError('required') && formContact.get('nom')?.touched" class="alert alert-danger">
         Le nom est requis.
       </div>
     </div>
     <div class="form-group">
       <label for="age">Age</label>
-      <input type="number" class="form-control" id="age" formControlName="age" (input)="validateField('age')" placeholder="21">
+      <input type="text" class="form-control" id="age" formControlName="age" (input)="validateField('age')" placeholder="21">
       <div *ngIf="formContact.get('age')?.hasError('required') && formContact?.get('age')?.touched" class="alert alert-danger">
         L'âge est requis.
       </div>
       <div *ngIf="formContact.get('age')?.hasError('pattern') && formContact?.get('age')?.touched" class="alert alert-danger">
-        L'âge doit être un nombre.
-      </div>
-      <div *ngIf="formContact.get('age')?.hasError('min') && formContact?.get('age')?.touched" class="alert alert-danger">
-        L'âge doit être supérieur à 0.
+        L'âge doit être un nombre supérieur à 0.
       </div>
     </div>    
     <div class="form-check">
@@ -40,7 +37,7 @@
   
     <div class="form-group" *ngIf="!formContact.get('showEmail')?.value;">
       <label for="InputEmail1">Email address</label>
-      <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+      <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email" (input)="validateField('email')">
       <div *ngIf="formContact.get('email')?.hasError('required') && formContact.get('email')?.touched" class="alert alert-danger">
         L'email est requis.
       </div>

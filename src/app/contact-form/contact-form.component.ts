@@ -13,7 +13,7 @@ export class ContactFormComponent {
   public formContact : FormGroup =  this.fb.group({
     prenom: ['',[Validators.required]],
     nom: ['',[Validators.required]],
-    age: ['',[Validators.required,Validators.pattern("[0-9]*"),Validators.min(1)]],
+    age: ['',[Validators.required,Validators.pattern("^[0-9]*$"),Validators.min(1)]],
     email: [''],
     commentaire: ['',[Validators.required]],
     showEmail: [true]
