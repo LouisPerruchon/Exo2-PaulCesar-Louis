@@ -30,14 +30,13 @@ export class ListeFilmComponent implements OnInit {
     this.refreshFilmDisplay();
   }
 
-  refreshFilmDisplay(){
+  refreshFilmDisplay() : void{
     if(Object.keys(this.filmSelected).length === 0){
       this.isFilmSelected=false;
     }
     else{
       this.isFilmSelected=true;
     }
-  
 
   }
   
